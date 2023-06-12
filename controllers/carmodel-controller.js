@@ -69,8 +69,6 @@ export const editCarmodel = async (req, res, next) => {
             status,
             brands
         }).populate("brands");
-        await carmodel.brands.carmodels.pull(carmodel);
-        await carmodel.brands.save();
     } catch (err) {
         console.log(err);
         res.status(500).json({ message: err.message });
@@ -86,8 +84,6 @@ export const deleteCarmodel = async (req, res, next) => {
     let carmodel;
     try {
         carmodel = await Carmodel.findByIdAndDelete(carmodelId);
-        await carmodel.brands.carmodels.pull(carmodel);
-        await carmodel.brands.save();
     } catch (err) {
         console.log(err);
         res.status(500).json({ message: err.message });

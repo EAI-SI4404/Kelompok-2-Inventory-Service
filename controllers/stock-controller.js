@@ -57,8 +57,6 @@ export const editstock = async (req, res, next) => {
             quantity,
             sold
         }).populate("carmodels");
-        await stock.carmodels.stocks.pull(stock);
-        await stock.carmodels.save();
     } catch (err) {
         console.log(err);
         res.status(500).json({ message: err.message });
@@ -66,7 +64,7 @@ export const editstock = async (req, res, next) => {
     if (!stock) {
         return res.status(404).json({ message: "No stock found" });
     }
-    return res.status(200).json({ stock });
+    return res.status(200).json({ message: "Stock updated successfully", stock });
 }
 
 export const deleteStock = async (req, res, next) => {
@@ -88,7 +86,7 @@ export const getStockId = async (req, res, next) => {
     const stockId = req.params.id;
     let stock;
     try {
-        stock = await Stock.findById(stockId);
+        stock = await Stock.findById(stockId).populate("carmodels");
     } catch (err) {
         console.log(err);
         return res.status(500).json({ message: err.message });
@@ -96,7 +94,7 @@ export const getStockId = async (req, res, next) => {
     if (!stock) {
         return res.status(404).json({ message: "No stock found" });
     }
-    return res.status(200).json({ stock });
+    return res.status(200).json({ message: "Stock found", stock });
 }
 
 export const searchStock = async (req, res, next) => {
@@ -121,5 +119,5 @@ export const searchStock = async (req, res, next) => {
     if (!stock) {
         return res.status(404).json({ message: "No stock found" });
     }
-    return res.status(200).json({ stock });
+    return res.status(200).json({ message: "Stock found", stock });
 }
