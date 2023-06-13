@@ -25,13 +25,13 @@ docker pull bimskuy25/kelompok-2-inventory-service-app:v2
 #### 5. Jalankan Pada Postman dengan link sebagai berikut
 #### Brand
 ```bash
-http://localhost:(Port Yang Sesuai)/api/brand
+GET : http://localhost:(Port Yang Sesuai)/api/brand
 ```
 #### Carmodel
 ```bash
-http://localhost:(Port Yang Sesuai)/api/carmodel
+GET : http://localhost:(Port Yang Sesuai)/api/carmodel
 ```
 #### Stock
 ```bash
-http://localhost:(Port Yang Sesuai)/api/stock
+GET : http://localhost:(Port Yang Sesuai)/api/stock
 ```
