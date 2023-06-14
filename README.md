@@ -26,12 +26,42 @@ docker pull bimskuy25/kelompok-2-inventory-service-app:v2
 #### Brand
 ```bash
 GET : http://localhost:(Port Yang Sesuai)/api/brand
+GET : http://localhost:(Port Yang Sesuai)/api/brand/{id}
 ```
+```bash
+POST : http://localhost:(Port Yang Sesuai)/api/brand/search
+```
+- Ke body dan ubah dari TEXT menjadi JSON, Kemudian cari sesuai dengan keinginan. Contoh:
+```bash
+{
+    "name":"Hyundai"
+}
+```
+
 #### Carmodel
 ```bash
 GET : http://localhost:(Port Yang Sesuai)/api/carmodel
+GET : http://localhost:(Port Yang Sesuai)/api/carmodel/{id}
+```
+```bash
+POST : http://localhost:(Port Yang Sesuai)/api/carmodel/search
+```
+- Ke body dan ubah dari TEXT menjadi JSON, Kemudian cari sesuai dengan keinginan. Contoh:
+```bash
+{
+    "year" : "2020"
+}
 ```
 #### Stock
 ```bash
 GET : http://localhost:(Port Yang Sesuai)/api/stock
+GET : http://localhost:(Port Yang Sesuai)/api/stock/{id}
 ```
+```bash
+POST : http://localhost:(Port Yang Sesuai)/api/stock/search
+```
+- Ke body dan ubah dari TEXT menjadi JSON, Kemudian cari sesuai dengan keinginan. Contoh:
+```bash
+{
+    "carmodels" : "6487141292a83e92c3baeb1b"
+}
